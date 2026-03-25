@@ -5,10 +5,30 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Pellicano CMS</title>
     <script src="https://identity.netlify.com/v1/netlify-identity-widget.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/js-yaml@4.1.0/dist/js-yaml.min.js"></script>
   </head>
   <body>
     <script src="https://unpkg.com/decap-cms@3.11.0/dist/decap-cms.js"></script>
     <script>
+      (function () {
+        var isLocalHost =
+          window.location.hostname === "localhost" ||
+          window.location.hostname === "127.0.0.1";
+
+        fetch("/admin/config.yml")
+          .then(function (response) {
+            return response.text();
+          })
+          .then(function (configText) {
+            var effectiveConfigText = isLocalHost ? "local_backend: true\n\n" + configText : configText;
+            var config = window.jsyaml.load(effectiveConfigText);
+            window.CMS.init({ config: config, load_config_file: false });
+          })
+          .catch(function (error) {
+            console.error("Failed to initialize Decap config", error);
+          });
+      })();
+
       if (window.netlifyIdentity) {
         window.netlifyIdentity.on("init", function (user) {
           if (!user) {
