@@ -25,7 +25,8 @@
           .then(function (configText) {
             var effectiveConfigText = isLocalHost ? "local_backend: true\n\n" + configText : configText;
             var config = window.jsyaml.load(effectiveConfigText);
-            window.CMS.init({ config: config, load_config_file: false });
+            config.load_config_file = false;
+            window.initCMS({ config: config });
           })
           .catch(function (error) {
             console.error("Failed to initialize Decap config", error);
