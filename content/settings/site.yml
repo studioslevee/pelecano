@@ -1,0 +1,40 @@
+site_title: Pellicano Construction
+brand_logo: /media/uploads/logo__Transparent-50th-Pellicano-Logo.png
+brand_mark: /media/uploads/logo__Transparent-Circle-Logo.png
+nav_items:
+  - label: Home
+    href: /
+  - label: Our Story
+    href: /our-story
+  - label: Projects
+    href: /projects
+  - label: Contact
+    href: /contact
+footer_menu:
+  - label: Projects
+    href: /projects
+  - label: Careers
+    href: /careers
+  - label: About Us
+    href: /our-story
+  - label: FTP Site
+    href: https://pellicanoconstruction.com/
+  - label: Home
+    href: /
+address_lines:
+  - 415 Pine Ave., Suite 200
+  - Albany, GA 31701
+phone: 229.883.6000
+email: info@pellicanoconstruction.com
+social_links:
+  - label: Facebook
+    href: https://www.facebook.com/
+  - label: Twitter
+    href: https://x.com/
+  - label: LinkedIn
+    href: https://www.linkedin.com/
+  - label: Instagram
+    href: https://www.instagram.com/
+footer_statement: A regional company, providing construction management, program
+  management, and small projects/facility management to our clients.
+copyright: Copyright ©2024 Pellicano Construction. All rights reserved.
