@@ -5,6 +5,12 @@ const projectRoutes = readdirSync(resolve("content/projects"), { withFileTypes: 
   .filter((entry) => entry.isFile() && entry.name.endsWith(".yml"))
   .map((entry) => `/projects/${entry.name.replace(/\.yml$/, "")}`);
 
+const pageRoutes = readdirSync(resolve("content/pages"), { withFileTypes: true })
+  .filter((entry) => entry.isFile() && entry.name.endsWith(".yml"))
+  .map((entry) => entry.name.replace(/\.yml$/, ""))
+  .filter((slug) => slug !== "home")
+  .map((slug) => `/${slug}`);
+
 export default defineNuxtConfig({
   compatibilityDate: "2025-03-01",
   devtools: { enabled: true },
@@ -24,7 +30,7 @@ export default defineNuxtConfig({
   nitro: {
     prerender: {
       crawlLinks: true,
-      routes: ["/", "/our-story", "/projects", ...projectRoutes]
+      routes: ["/", ...pageRoutes, ...projectRoutes]
     }
   }
 });
