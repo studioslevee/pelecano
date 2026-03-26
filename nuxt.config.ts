@@ -14,6 +14,9 @@ const pageRoutes = readdirSync(resolve("content/pages"), { withFileTypes: true }
 export default defineNuxtConfig({
   compatibilityDate: "2025-03-01",
   devtools: { enabled: true },
+  experimental: {
+    appManifest: false
+  },
   app: {
     head: {
       title: "Pellicano Construction",

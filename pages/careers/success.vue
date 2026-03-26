@@ -1,3 +1,11 @@
+<script setup lang="ts">
+onMounted(() => {
+  if (import.meta.client) {
+    window.localStorage.setItem("pellicano-careers-submitted", "true");
+  }
+});
+</script>
+
 <template>
   <div class="page-shell">
     <section class="section form-success">

@@ -18,9 +18,19 @@ const props = defineProps<{
 const activeMember = ref<TeamEntry | null>(null);
 const activeFilters = reactive<Record<string, string>>({});
 const timelineRoots = ref<HTMLElement[]>([]);
+const route = useRoute();
+const contactSubmitted = ref(false);
+const careersSubmitted = ref(false);
+const submittingStates = reactive({
+  contact: false,
+  careers: false
+});
 let revealObserver: IntersectionObserver | null = null;
+const CONTACT_STORAGE_KEY = "pellicano-contact-submitted";
+const CAREERS_STORAGE_KEY = "pellicano-careers-submitted";
 
 const visibleSections = computed(() => (props.page.sections ?? []).filter((section) => section.enabled !== false));
+const isContactPage = computed(() => props.page.slug === "contact" || route.path === "/contact");
 
 function sectionKey(section: PageSection, index: number) {
   return section.section_id || `${section.type}-${index}`;
@@ -72,7 +82,41 @@ function initRevealObserver() {
   items.forEach((item) => revealObserver?.observe(item));
 }
 
+function normalizePhoneInput(event: Event) {
+  const input = event.target as HTMLInputElement | null;
+  if (!input) {
+    return;
+  }
+
+  const digits = input.value.replace(/\D/g, "").slice(0, 10);
+  if (digits.length <= 3) {
+    input.value = digits;
+    return;
+  }
+
+  if (digits.length <= 6) {
+    input.value = `(${digits.slice(0, 3)}) ${digits.slice(3)}`;
+    return;
+  }
+
+  input.value = `(${digits.slice(0, 3)}) ${digits.slice(3, 6)}-${digits.slice(6)}`;
+}
+
+function handleFormSubmit(type: "contact" | "careers", event: Event) {
+  const alreadySubmitted = type === "contact" ? contactSubmitted.value : careersSubmitted.value;
+  if (alreadySubmitted || submittingStates[type]) {
+    event.preventDefault();
+    return;
+  }
+
+  submittingStates[type] = true;
+}
+
 onMounted(() => {
+  if (import.meta.client) {
+    contactSubmitted.value = window.localStorage.getItem(CONTACT_STORAGE_KEY) === "true";
+    careersSubmitted.value = window.localStorage.getItem(CAREERS_STORAGE_KEY) === "true";
+  }
   initRevealObserver();
 });
 
@@ -261,38 +305,61 @@ onBeforeUnmount(() => {
         </div>
       </section>
 
-      <section v-else-if="section.type === 'contact_form'" class="section form-section">
+      <section v-else-if="section.type === 'contact_form'" class="section form-section" :class="{ 'form-section--contact': isContactPage }">
         <div>
           <h2>{{ section.headline }}</h2>
           <p class="section-copy">{{ section.body }}</p>
+          <div v-if="isContactPage && settings" class="contact-details contact-details--panel">
+            <p v-for="line in settings.address_lines" :key="line">{{ line }}</p>
+            <a :href="`tel:${settings.phone}`">{{ settings.phone }}</a>
+            <a :href="`mailto:${settings.email}`">{{ settings.email }}</a>
+          </div>
+        </div>
+        <div v-if="contactSubmitted" class="form-thankyou">
+          <h3>Thank you.</h3>
+          <p>Your message has already been received. Someone from the Pellicano team will follow up soon.</p>
         </div>
         <form
+          v-else
           name="contact"
           method="POST"
           action="/contact/success"
           data-netlify="true"
           netlify-honeypot="bot-field"
           class="site-form"
+          @submit="handleFormSubmit('contact', $event)"
         >
           <input type="hidden" name="form-name" value="contact" />
           <input type="hidden" name="bot-field" />
           <label class="form-field">
             <span>Name</span>
-            <input type="text" name="name" required />
+            <input type="text" name="name" maxlength="80" autocomplete="name" required />
           </label>
           <label class="form-field">
             <span>Email</span>
-            <input type="email" name="email" required />
+            <input type="email" name="email" maxlength="120" autocomplete="email" inputmode="email" required />
           </label>
           <label class="form-field">
             <span>Number</span>
-            <input type="tel" name="number" required />
+            <input
+              type="tel"
+              name="number"
+              maxlength="14"
+              inputmode="tel"
+              autocomplete="tel"
+              pattern="^\(\d{3}\) \d{3}-\d{4}$"
+              placeholder="(555) 555-5555"
+              required
+              @input="normalizePhoneInput"
+            />
           </label>
           <label class="form-field form-field--full">
             <span>Question</span>
-            <textarea name="question" rows="6" required />
+            <textarea name="question" rows="6" maxlength="1000" required />
           </label>
-          <button type="submit" class="button-link">{{ section.submit_label }}</button>
+          <button type="submit" class="button-link" :disabled="submittingStates.contact">
+            {{ submittingStates.contact ? "Sending..." : section.submit_label }}
+          </button>
         </form>
       </section>
 
@@ -324,7 +391,12 @@ onBeforeUnmount(() => {
             {{ section.linkedin_label }}
           </a>
         </div>
+        <div v-if="careersSubmitted" class="form-thankyou">
+          <h3>Thank you.</h3>
+          <p>Your application has already been received. The Pellicano team will review your submission.</p>
+        </div>
         <form
+          v-else
           name="careers"
           method="POST"
           action="/careers/success"
@@ -332,26 +404,39 @@ onBeforeUnmount(() => {
           data-netlify="true"
           netlify-honeypot="bot-field"
           class="site-form"
+          @submit="handleFormSubmit('careers', $event)"
         >
           <input type="hidden" name="form-name" value="careers" />
           <input type="hidden" name="bot-field" />
           <label class="form-field">
             <span>Name</span>
-            <input type="text" name="name" required />
+            <input type="text" name="name" maxlength="80" autocomplete="name" required />
           </label>
           <label class="form-field">
             <span>Email</span>
-            <input type="email" name="email" required />
+            <input type="email" name="email" maxlength="120" autocomplete="email" inputmode="email" required />
           </label>
           <label class="form-field">
             <span>Number</span>
-            <input type="tel" name="number" required />
+            <input
+              type="tel"
+              name="number"
+              maxlength="14"
+              inputmode="tel"
+              autocomplete="tel"
+              pattern="^\(\d{3}\) \d{3}-\d{4}$"
+              placeholder="(555) 555-5555"
+              required
+              @input="normalizePhoneInput"
+            />
           </label>
           <label class="form-field form-field--full">
             <span>Attach Resume</span>
             <input type="file" name="resume" accept=".pdf,.doc,.docx" required />
           </label>
-          <button type="submit" class="button-link">{{ section.submit_label }}</button>
+          <button type="submit" class="button-link" :disabled="submittingStates.careers">
+            {{ submittingStates.careers ? "Sending..." : section.submit_label }}
+          </button>
         </form>
       </section>
     </template>
