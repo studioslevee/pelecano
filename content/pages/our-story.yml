@@ -6,7 +6,9 @@ hero:
   image: /media/uploads/logo__Transparent-50th-Pellicano-Logo.png
   eyebrow: Our Story
   headline: Building relationships since 1976.
-  subhead: Pellicano Construction has grown from an Albany-founded builder into a regional construction management partner serving clients across multiple industries.
+  subhead: Pellicano Construction has grown from an Albany-founded builder into a
+    regional construction management partner serving clients across multiple
+    industries.
 sections:
   - type: timeline
     enabled: true
@@ -14,46 +16,67 @@ sections:
     items:
       - year: "1976"
         label: Founded in Albany
-        description: Tony Pellicano established the company in Albany, Georgia with landmark public projects that set the tone for decades of trusted work.
-      - year: "1980s"
+        description: Tony Pellicano established the company in Albany, Georgia with
+          landmark public projects that set the tone for decades of trusted
+          work.
+      - year: 1980s
         label: Market expansion
-        description: Pellicano diversified into corporate, commercial, faith-based, and industrial sectors while building long-term client relationships.
-      - year: "2000s"
+        description: Pellicano diversified into corporate, commercial, faith-based, and
+          industrial sectors while building long-term client relationships.
+      - year: 2000s
         label: Major growth milestone
-        description: The company delivered the Miller-Murphy-Howard Convention Center and expanded into retail, hospitality, and healthcare construction management.
+        description: The company delivered the Miller-Murphy-Howard Convention Center
+          and expanded into retail, hospitality, and healthcare construction
+          management.
       - year: "2008"
         label: Atlanta office opens
-        description: A full-service Atlanta office broadened Pellicano's reach across the Southeast.
+        description: A full-service Atlanta office broadened Pellicano's reach across
+          the Southeast.
       - year: "2015"
         label: Stephen Dew named CEO
-        description: Leadership transitioned to Stephen Dew as Pellicano continued to scale its construction management practice.
-      - year: "Today"
+        description: Leadership transitioned to Stephen Dew as Pellicano continued to
+          scale its construction management practice.
+      - year: Today
         label: Licensed in 21 states
-        description: Pellicano now delivers comprehensive construction management services throughout the region with offices in Albany, Athens, Atlanta, and Macon.
+        description: Pellicano now delivers comprehensive construction management
+          services throughout the region with offices in Albany, Athens,
+          Atlanta, and Macon.
   - type: team_grid
     enabled: true
     eyebrow: Team
     headline: Only great people on board.
-    body: Pellicano's leadership team combines deep operational knowledge, healthcare expertise, field leadership, and long-standing client relationships across the Southeast.
+    body: Pellicano's leadership team combines deep operational knowledge,
+      healthcare expertise, field leadership, and long-standing client
+      relationships across the Southeast.
   - type: story_blocks
     enabled: true
     blocks:
       - headline: Founded in trust and long-term partnership
-        body: Tony Pellicano founded Pellicano Construction in 1976 in Albany, Georgia. Early work included the renovation of the Old Dougherty County Jail and the Georgia Veterans State Park Welcome Center, building a foundation for decades of client relationships.
-        image: /media/uploads/bmw-of-albany__BMW-of-Albany-4-Copy.jpg.jpeg
+        body: Tony Pellicano founded Pellicano Construction in 1976 in Albany, Georgia.
+          Early work included the renovation of the Old Dougherty County Jail
+          and the Georgia Veterans State Park Welcome Center, building a
+          foundation for decades of client relationships.
+        image: /media/uploads/gemini_generated_image_l53o95l53o95l53o-1-.png
         image_alignment: right
       - headline: Diversified growth across the Southeast
-        body: Through the 1980s and beyond, Pellicano expanded across corporate, commercial, faith-based, hospitality, industrial, retail, and healthcare sectors, serving clients such as Synovus, Merck, Grainger, and Cooper Tire.
-        image: /media/uploads/synovus-bank__DSC_0306-scaled.jpg.jpeg
+        body: Through the 1980s and beyond, Pellicano expanded across corporate,
+          commercial, faith-based, hospitality, industrial, retail, and
+          healthcare sectors, serving clients such as Synovus, Merck, Grainger,
+          and Cooper Tire.
+        image: /media/uploads/ba5c65ef-7a4f-4aef-a952-e6a772a2af6a.jpg
         image_alignment: left
       - headline: Built to manage complexity
-        body: With offices in Albany, Athens, Atlanta, and Macon, Pellicano continues to offer complete construction management services in 21 states, bringing preconstruction expertise, field leadership, and program-level thinking to every engagement.
-        image: /media/uploads/piedmont-athens-brain-and-spine__Piedmont-Athens-Regional-Brain-and-Spine-Piedmont-BS-Offical-1.jpg.jpeg
+        body: With offices in Albany, Athens, Atlanta, and Macon, Pellicano continues to
+          offer complete construction management services in 21 states, bringing
+          preconstruction expertise, field leadership, and program-level
+          thinking to every engagement.
+        image: /media/uploads/gemini_generated_image_egqtw2egqtw2egqt.png
         image_alignment: right
   - type: contact_cta
     enabled: true
     eyebrow: Careers
     headline: Interested in building with Pellicano?
-    body: Explore current opportunities and learn more about joining a team built on trust, training, and long-term relationships.
+    body: Explore current opportunities and learn more about joining a team built on
+      trust, training, and long-term relationships.
     link_label: View Careers
     link_href: /careers

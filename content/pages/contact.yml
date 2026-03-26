@@ -2,15 +2,17 @@ title: Contact
 slug: contact
 hero:
   media_type: image
-  image: /media/uploads/logo__Transparent-50th-Pellicano-Logo.png
+  image: /media/uploads/victory-world-church__Victory-World-Church-10-Copy.jpg
   eyebrow: Contact
   headline: Start the conversation.
-  subhead: Reach Pellicano Construction to discuss construction management, program management, or facility-focused work across the Southeast.
+  subhead: Reach Pellicano Construction to discuss construction management,
+    program management, or facility-focused work across the Southeast.
 sections:
   - type: contact_info
     enabled: true
     headline: Contact Information
-    body: The primary office and contact details below come directly from the source package and current public site information.
+    body: The primary office and contact details below come directly from the source
+      package and current public site information.
   - type: contact_form
     enabled: true
     headline: Send a message
