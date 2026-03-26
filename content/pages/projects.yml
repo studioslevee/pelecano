@@ -2,16 +2,21 @@ title: Projects
 slug: projects
 hero:
   media_type: image
-  image: /media/uploads/mount-juliet-first-baptist-church__FirstBaptistMJ033023_197-Copy-W.jpg
+  image: /media/uploads/christ-community-church__Christ-Community-Church-14-Copy.jpg
   eyebrow: Projects
   headline: Work shaped by experience, relationships, and execution.
-  subhead: Pellicano's portfolio spans automotive, corporate office, entertainment and restaurants, faith based, healthcare, hospitality, industrial, and retail projects.
+  subhead: Pellicano's portfolio spans automotive, corporate office, entertainment
+    and restaurants, faith based, healthcare, hospitality, industrial, and
+    retail projects.
 sections:
   - type: intro
     enabled: true
     eyebrow: Projects
     headline: A diverse portfolio built across decades.
-    body: Pellicano Construction has built projects across nearly every industry type while maintaining a diverse mix of project scales, methods, and delivery conditions. Each one reflects the same commitment to creativity, craftsmanship, and client partnership.
+    body: Pellicano Construction has built projects across nearly every industry
+      type while maintaining a diverse mix of project scales, methods, and
+      delivery conditions. Each one reflects the same commitment to creativity,
+      craftsmanship, and client partnership.
   - type: project_grid
     enabled: true
     filter_labels:

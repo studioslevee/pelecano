@@ -2,7 +2,7 @@ title: Careers
 slug: careers
 hero:
   media_type: image
-  image: /media/uploads/logo__Transparent-50th-Pellicano-Logo.png
+  image: /media/uploads/gemini_generated_image_ll3aoull3aoull3a.png
   eyebrow: Careers
   headline: You're Awesome. We Should Talk.
   subhead: Join Our Team
@@ -10,16 +10,34 @@ sections:
   - type: careers_intro
     enabled: true
     intro_headline: Join Our Team
-    intro_body: If you are looking for a challenging position in a positive environment Pellicano may be the place for you. We believe you should have many opportunities to advance in your career. We offer the latest technologies and industry advances to every employee. We want energetic employees who lead by example and who are willing to go the extra mile to ensure that the owner's needs are met. We instill a sense of family and are always available to all employees.
+    intro_body: If you are looking for a challenging position in a positive
+      environment Pellicano may be the place for you. We believe you should have
+      many opportunities to advance in your career. We offer the latest
+      technologies and industry advances to every employee. We want energetic
+      employees who lead by example and who are willing to go the extra mile to
+      ensure that the owner's needs are met. We instill a sense of family and
+      are always available to all employees.
     training_headline: Training
-    training_body: Ongoing training is part of our culture. We utilize both internal training methods and external training through various organizations to help develop each employee. It is important to us that you fully understand your role whether in the field or in the office. From new technologies to jobsite procedures, we want you to be very familiar with all tools that are available to you. We believe that learning never ceases and the better trained you are the more you will enjoy your job.
+    training_body: Ongoing training is part of our culture. We utilize both internal
+      training methods and external training through various organizations to
+      help develop each employee. It is important to us that you fully
+      understand your role whether in the field or in the office. From new
+      technologies to jobsite procedures, we want you to be very familiar with
+      all tools that are available to you. We believe that learning never ceases
+      and the better trained you are the more you will enjoy your job.
     people_headline: People
-    people_body: Construction techniques continue to change but business principles stay the same. We are always looking for energetic, positive people to join our team. Our goal is that you invest in us and we invest in you. We want our success to be your success. All team members are important and should feel a sense of pride in their contributions and in the company.
+    people_body: Construction techniques continue to change but business principles
+      stay the same. We are always looking for energetic, positive people to
+      join our team. Our goal is that you invest in us and we invest in you. We
+      want our success to be your success. All team members are important and
+      should feel a sense of pride in their contributions and in the company.
   - type: careers_apply
     enabled: true
     eyebrow: Building Relationships Since 1976
     headline: Apply with Pellicano Construction
-    body: If interested in applying for a position with the Pellicano Construction team, please click the button below to contact us via our LinkedIn page (preferred method), otherwise please submit your resume below.
+    body: If interested in applying for a position with the Pellicano Construction
+      team, please click the button below to contact us via our LinkedIn page
+      (preferred method), otherwise please submit your resume below.
     linkedin_label: Apply via LinkedIn
     linkedin_href: https://www.linkedin.com/
     submit_label: Submit Resume

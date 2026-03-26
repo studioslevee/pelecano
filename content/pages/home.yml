@@ -5,24 +5,28 @@ hero:
   video: /media/uploads/video__Alberson-Pellicano-Website-Loop-1080p.mov
   eyebrow: Construction Management
   headline: Built on a foundation of trust.
-  subhead: We partner with our clients to deliver thoughtful, creative solutions grounded in integrity and driven by a commitment to excellence.
+  subhead: We partner with our clients to deliver thoughtful, creative solutions
+    grounded in integrity and driven by a commitment to excellence.
   hide_copy: true
 sections:
   - type: featured_projects
     enabled: true
     eyebrow: Featured Work
     headline: Select projects built through trust, precision, and long-term partnership.
-    body: These featured projects show the range of Pellicano's work across automotive, corporate, entertainment, and healthcare environments.
+    body: These featured projects show the range of Pellicano's work across
+      automotive, corporate, entertainment, and healthcare environments.
     project_slugs:
-      - butler-audi-south-atlanta
-      - fleming-and-riles
-      - bowl-and-barrel
-      - piedmont-athens-brain-and-spine
+      - butler-ford-milledgeville
+      - the-general-public
+      - flaggstone-student-housing
+      - free-chapel
   - type: callout
     enabled: true
     eyebrow: Why Pellicano
     headline: A regional company built around relationships, not transactions.
-    body: Pellicano's reputation has been shaped by strong partnerships, disciplined project leadership, and a commitment to delivering every project on time, within budget, and with craftsmanship that lasts.
+    body: Pellicano's reputation has been shaped by strong partnerships, disciplined
+      project leadership, and a commitment to delivering every project on time,
+      within budget, and with craftsmanship that lasts.
   - type: logo_grid
     enabled: true
     headline: Clients and partners we have built with.
@@ -39,22 +43,27 @@ sections:
     enabled: true
     eyebrow: Capabilities
     headline: Services that stay aligned from predevelopment through closeout.
-    image: /media/uploads/butler-audi-south-atlanta__Butler-Audi-South-Atlanta-1-Copy.jpg.jpeg
+    image: /media/uploads/target-varsity-plaza-tallahassee-20-copy.jpg
     items:
       - number: "01"
         title: Construction Management
-        body: Preconstruction services, constructability review, BIM coordination, scheduling, budgeting, procurement strategy, closeout, and commissioning support.
+        body: Preconstruction services, constructability review, BIM coordination,
+          scheduling, budgeting, procurement strategy, closeout, and
+          commissioning support.
       - number: "02"
         title: Program Management
-        body: Feasibility, site analysis, zoning coordination, due diligence, master planning, design development, budgeting, and contract negotiation.
+        body: Feasibility, site analysis, zoning coordination, due diligence, master
+          planning, design development, budgeting, and contract negotiation.
       - number: "03"
         title: Small Projects & Facility Maintenance
-        body: Turnkey design, in-house documents, 3D drawing capabilities, infection control planning, and life safety correction support.
+        body: Turnkey design, in-house documents, 3D drawing capabilities, infection
+          control planning, and life safety correction support.
   - type: contact_cta
     enabled: true
     anchor_id: contact
     eyebrow: Contact
     headline: Ready to talk through the next project?
-    body: Connect with Pellicano to discuss construction management, program management, and facility-focused work across the Southeast.
+    body: Connect with Pellicano to discuss construction management, program
+      management, and facility-focused work across the Southeast.
     link_label: Contact Us
     link_href: /contact
