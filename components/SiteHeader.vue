@@ -19,6 +19,9 @@ const primaryNavItems = computed(() =>
     ? props.settings.nav_items.filter((item) => item.label.toLowerCase() !== "contact")
     : props.settings.nav_items
 );
+const homeNavItems = computed(() =>
+  isHome.value && contactItem.value ? [...primaryNavItems.value, contactItem.value] : primaryNavItems.value
+);
 </script>
 
 <template>
@@ -33,17 +36,20 @@ const primaryNavItems = computed(() =>
       </NuxtLink>
       <nav class="site-nav">
         <NuxtLink
-          v-for="item in primaryNavItems"
+          v-for="item in isHome ? homeNavItems : primaryNavItems"
           :key="item.href"
           :to="item.href"
           class="site-nav__link"
-          :class="{ 'site-nav__link--active': route.path === item.href }"
+          :class="{
+            'site-nav__link--active': route.path === item.href,
+            'site-nav__link--contact-mobile': isHome && item.label.toLowerCase() === 'contact'
+          }"
         >
           {{ item.label }}
         </NuxtLink>
       </nav>
     </div>
-    <NuxtLink v-if="isHome && contactItem" :to="contactItem.href" class="site-header__action">
+    <NuxtLink v-if="isHome && contactItem" :to="contactItem.href" class="site-header__action desktop-only">
       {{ contactItem.label }}
     </NuxtLink>
     <div v-if="isHome && homePage" class="site-header__home-copy">

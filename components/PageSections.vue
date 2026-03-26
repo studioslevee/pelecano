@@ -61,7 +61,9 @@ function setTimelineRoot(el: Element | ComponentPublicInstance | null) {
 }
 
 function initRevealObserver() {
-  const items = timelineRoots.value.flatMap((root) => Array.from(root.querySelectorAll<HTMLElement>(".reveal-on-scroll")));
+  const timelineItems = timelineRoots.value.flatMap((root) => Array.from(root.querySelectorAll<HTMLElement>(".reveal-on-scroll")));
+  const storyItems = Array.from(document.querySelectorAll<HTMLElement>(".story-block.reveal-on-scroll"));
+  const items = [...timelineItems, ...storyItems];
   if (!items.length) {
     return;
   }
@@ -242,10 +244,14 @@ onBeforeUnmount(() => {
 
       <section v-else-if="section.type === 'story_blocks'" class="section story-grid">
         <article
-          v-for="block in section.blocks"
+          v-for="(block, blockIndex) in section.blocks"
           :key="block.headline"
-          class="story-block"
-          :class="{ 'story-block--reverse': block.image_alignment === 'left' }"
+          class="story-block reveal-on-scroll"
+          :class="{
+            'story-block--reverse': block.image_alignment === 'left',
+            'story-block--reveal-left': blockIndex % 2 === 0,
+            'story-block--reveal-right': blockIndex % 2 !== 0
+          }"
         >
           <img :src="block.image" :alt="block.headline" />
           <div>
@@ -263,15 +269,30 @@ onBeforeUnmount(() => {
         </div>
         <div class="team-grid">
           <button
-            v-for="member in team"
+            v-for="(member, memberIndex) in team"
             :key="member.slug"
             type="button"
             class="team-card"
             @click="activeMember = member"
           >
-            <img :src="member.headshot" :alt="member.name" />
-            <h3>{{ member.name }}</h3>
-            <p>{{ member.title }}</p>
+            <div class="team-card__media">
+              <img
+                :src="member.headshot"
+                :alt="member.name"
+                width="720"
+                height="960"
+                :loading="memberIndex < 4 ? 'eager' : 'lazy'"
+                decoding="async"
+                :style="{
+                  objectPosition: member.image_position || 'center top',
+                  transform: `scale(${member.image_scale || 1})`
+                }"
+              />
+            </div>
+            <div class="team-card__body">
+              <h3>{{ member.name }}</h3>
+              <p>{{ member.title }}</p>
+            </div>
           </button>
         </div>
       </section>

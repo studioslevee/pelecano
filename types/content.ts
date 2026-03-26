@@ -206,6 +206,8 @@ export interface TeamEntry {
   slug: string;
   title: string;
   headshot?: string;
+  image_position?: string;
+  image_scale?: number;
   bio?: string;
   sort_order?: number;
   source_filename: string;

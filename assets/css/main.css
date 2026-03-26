@@ -103,10 +103,8 @@ main {
 .site-header__home-copy {
   display: grid;
   justify-items: end;
-  gap: 0.18rem;
-  max-width: 22rem;
-  padding-left: 1.25rem;
-  border-left: 1px solid rgba(255, 255, 255, 0.32);
+  gap: 0.35rem;
+  max-width: 30rem;
   text-align: right;
 }
 
@@ -116,15 +114,15 @@ main {
 }
 
 .site-header__home-copy p {
-  font-size: 0.78rem;
+  font-size: 0.98rem;
   letter-spacing: 0.12em;
   text-transform: uppercase;
-  opacity: 0.8;
+  opacity: 0.9;
 }
 
 .site-header__home-copy strong {
-  font-size: 1.1rem;
-  line-height: 1.05;
+  font-size: clamp(2rem, 3.4vw, 3.25rem);
+  line-height: 0.98;
   font-family: var(--font-heading);
 }
 
@@ -142,13 +140,6 @@ main {
   left: max(1rem, calc((100vw - var(--page-max)) / 2));
 }
 
-.site-header--home .site-nav {
-  position: absolute;
-  left: max(1rem, calc((100vw - var(--page-max)) / 2));
-  top: 50%;
-  transform: translateY(-30%);
-}
-
 .site-header__action {
   display: inline-flex;
   align-items: center;
@@ -159,12 +150,19 @@ main {
   background: rgba(255, 255, 255, 0.16);
   color: var(--color-white);
   position: absolute;
-  top: 1.5rem;
+  top: 4.2rem;
   right: max(1rem, calc((100vw - var(--page-max)) / 2));
   letter-spacing: 0.12em;
   text-transform: uppercase;
   font-size: 0.8rem;
   text-align: center;
+}
+
+.site-header--home .site-nav {
+  position: absolute;
+  left: max(1rem, calc((100vw - var(--page-max)) / 2));
+  top: 50%;
+  transform: translateY(-30%);
 }
 
 .brand {
@@ -244,6 +242,10 @@ main {
 .site-header--home .site-nav__link--active {
   background: none;
   opacity: 1;
+}
+
+.site-header--home .site-nav__link--contact-mobile {
+  display: none;
 }
 
 .site-header--solid .site-nav__link:hover,
@@ -340,6 +342,10 @@ main {
   max-width: 11ch;
   font-size: clamp(3.2rem, 7vw, 6.3rem);
   line-height: 1;
+}
+
+.hero--compact .hero-copy h1 {
+  max-width: 16ch;
 }
 
 .hero-subhead,
@@ -479,8 +485,6 @@ main {
 
 .project-card,
 .team-card,
-.section--callout,
-.contact-banner,
 .story-block {
   background: rgba(255, 255, 255, 0.96);
   border: 1px solid var(--color-border);
@@ -517,7 +521,7 @@ main {
   inset: 0;
   display: grid;
   place-items: center;
-  background: linear-gradient(180deg, rgba(28, 94, 172, 0.08), rgba(28, 94, 172, 0.34));
+  background: linear-gradient(180deg, rgba(17, 45, 83, 0.18), rgba(17, 45, 83, 0.58));
   color: var(--color-white);
   font-size: 0.86rem;
   letter-spacing: 0.12em;
@@ -535,7 +539,6 @@ main {
 }
 
 .project-card__body,
-.story-block > div,
 .section--callout,
 .contact-banner {
   padding: 1.35rem 1.4rem;
@@ -552,8 +555,15 @@ main {
 }
 
 .section--callout {
+  display: grid;
+  gap: 0.9rem;
+  max-width: 54rem;
+  margin-inline: auto;
+  padding: 0.4rem 0 0;
   text-align: center;
-  background: linear-gradient(180deg, rgba(255, 255, 255, 0.84), rgba(219, 231, 246, 0.52));
+  background: transparent;
+  border: 0;
+  box-shadow: none;
 }
 
 .logos-section {
@@ -563,18 +573,14 @@ main {
 .logos-grid {
   display: grid;
   grid-template-columns: repeat(4, minmax(0, 1fr));
-  gap: 1.25rem;
+  gap: 2rem;
   align-items: center;
 }
 
 .logos-grid__logo {
   width: 100%;
-  max-height: 6rem;
+  max-height: 7.5rem;
   object-fit: contain;
-  padding: 1rem 1.25rem;
-  border: 1px solid rgba(37, 33, 34, 0.08);
-  border-radius: 0.75rem;
-  background: var(--color-white);
 }
 
 .sticky-section__content {
@@ -582,9 +588,7 @@ main {
 }
 
 .sticky-section__media {
-  position: sticky;
-  top: calc(var(--header-height) + 1.5rem);
-  align-self: start;
+  align-self: stretch;
 }
 
 .sticky-section__media img,
@@ -638,6 +642,7 @@ main {
   padding: 0.65rem 1rem;
   border-radius: 999px;
   transition: background-color 180ms ease, color 180ms ease, border-color 180ms ease;
+  width: fit-content;
 }
 
 .button-link,
@@ -654,8 +659,17 @@ main {
 }
 
 .contact-banner {
+  grid-template-columns: 1fr;
+  gap: 1.1rem;
+  max-width: 54rem;
+  margin-inline: auto;
   align-items: center;
-  background: linear-gradient(135deg, rgba(28, 94, 172, 0.08), rgba(28, 94, 172, 0.18));
+  justify-items: center;
+  padding: 0.4rem 0 0;
+  text-align: center;
+  background: transparent;
+  border: 0;
+  box-shadow: none;
 }
 
 .filter-bar {
@@ -685,16 +699,37 @@ main {
 
 .story-grid {
   display: grid;
-  gap: 1.75rem;
+  gap: 2.75rem;
 }
 
 .story-block {
-  overflow: hidden;
   align-items: stretch;
+  background: transparent;
+  border: 0;
+  box-shadow: none;
+  border-radius: 0;
+  gap: 2.5rem;
+  min-height: 26rem;
 }
 
 .story-block--reverse img {
   order: 2;
+}
+
+.story-block > div {
+  display: grid;
+  align-content: center;
+  gap: 0.9rem;
+  padding: 0;
+}
+
+.story-block img {
+  align-self: stretch;
+}
+
+.story-block h2,
+.story-block p {
+  margin: 0;
 }
 
 .team-grid {
@@ -703,7 +738,7 @@ main {
 
 .team-card {
   display: grid;
-  grid-template-rows: auto auto 1fr;
+  grid-template-rows: auto auto;
   padding: 0;
   overflow: hidden;
   text-align: left;
@@ -715,26 +750,45 @@ main {
   box-shadow: 0 24px 48px rgba(37, 33, 34, 0.14);
 }
 
+.team-card__media {
+  position: relative;
+  min-height: 20rem;
+  overflow: hidden;
+}
+
 .team-card img {
   aspect-ratio: 3 / 4;
+  width: 100%;
+  max-height: 20rem;
+  height: 100%;
   object-fit: cover;
+  object-position: center top;
+  transition: transform 180ms ease;
+}
+
+.team-card__body {
+  display: grid;
+  gap: 0.35rem;
+  padding: 0.95rem 1rem 1rem;
+  background: rgba(255, 255, 255, 0.94);
+  border-top: 0;
 }
 
 .team-card h3,
 .team-card p {
-  padding-inline: 1rem;
+  margin: 0;
+  padding: 0;
+  color: var(--color-ink);
 }
 
 .team-card h3 {
-  padding-top: 1rem;
-  min-height: 4.25rem;
+  min-height: 0;
   font-size: 1.05rem;
   line-height: 1.15;
 }
 
 .team-card p {
-  padding-bottom: 1.2rem;
-  min-height: 4.8rem;
+  min-height: 0;
   color: var(--color-muted);
 }
 
@@ -753,9 +807,10 @@ main {
 
 .careers-copy__block {
   padding: 1.35rem 1.4rem;
-  border: 1px solid rgba(37, 33, 34, 0.08);
+  border: 1px solid rgba(37, 33, 34, 0.06);
   border-radius: 0.85rem;
-  background: rgba(255, 255, 255, 0.98);
+  background: linear-gradient(180deg, rgba(255, 255, 255, 0.96), rgba(250, 247, 242, 0.92));
+  box-shadow: 0 12px 28px rgba(37, 33, 34, 0.04);
 }
 
 .careers-copy__block h3 {
@@ -1111,6 +1166,21 @@ main {
   transform: translateY(0);
 }
 
+.story-block.reveal-on-scroll.story-block--reveal-left {
+  opacity: 0.12;
+  transform: translateX(-42px);
+}
+
+.story-block.reveal-on-scroll.story-block--reveal-right {
+  opacity: 0.12;
+  transform: translateX(42px);
+}
+
+.story-block.reveal-on-scroll.is-visible {
+  opacity: 1;
+  transform: translateX(0);
+}
+
 @media (max-width: 1100px) {
   .projects-grid {
     grid-template-columns: repeat(2, minmax(0, 1fr));
@@ -1126,6 +1196,10 @@ main {
 }
 
 @media (max-width: 900px) {
+  .desktop-only {
+    display: none !important;
+  }
+
   .site-header,
   .hero-copy,
   .two-column,
@@ -1140,14 +1214,15 @@ main {
   }
 
   .site-header {
-    padding-inline: 1rem;
+    padding: 0.9rem 1rem;
     flex-wrap: wrap;
-    gap: 0.8rem;
+    gap: 1rem;
   }
 
   .site-header__left {
     width: 100%;
     justify-content: space-between;
+    align-items: flex-start;
   }
 
   .site-header--home .site-header__left,
@@ -1157,7 +1232,8 @@ main {
   }
 
   .site-header--home .site-header__left {
-    display: block;
+    display: grid;
+    gap: 1rem;
   }
 
   .site-header--home .brand,
@@ -1169,17 +1245,29 @@ main {
   .site-header__action {
     position: static;
     margin-left: auto;
+    min-height: 2.5rem;
+    padding-inline: 0.95rem;
   }
 
   .site-nav {
     overflow-x: auto;
-    width: auto;
+    width: 100%;
     padding-bottom: 0.15rem;
+    scrollbar-width: none;
+  }
+
+  .site-nav::-webkit-scrollbar {
+    display: none;
   }
 
   .site-header--home .site-nav {
     display: flex;
-    gap: 0.85rem;
+    gap: 1rem;
+    padding-top: 0.25rem;
+  }
+
+  .site-header--home .site-nav__link--contact-mobile {
+    display: inline-flex;
   }
 
   .site-header__home-copy {
@@ -1187,18 +1275,16 @@ main {
     width: 100%;
     max-width: none;
     text-align: left;
-    padding-left: 0;
-    border-left: 0;
-    padding-top: 0.3rem;
+    padding-top: 0.75rem;
   }
 
   .hero--full {
-    min-height: 88vh;
+    min-height: 92vh;
   }
 
   .hero-copy {
-    gap: 1.5rem;
-    padding: 6.5rem 1rem 3rem;
+    gap: 1.25rem;
+    padding: 8.5rem 1rem 2.75rem;
   }
 
   .hero--split .hero-copy__secondary {
@@ -1215,6 +1301,19 @@ main {
     margin-top: 0;
   }
 
+  .featured-copy {
+    padding-right: 0;
+  }
+
+  .featured-stack {
+    display: grid;
+    gap: 1rem;
+  }
+
+  .sticky-section__media {
+    order: -1;
+  }
+
   .projects-grid,
   .team-grid,
   .gallery-grid {
@@ -1229,6 +1328,10 @@ main {
   .careers-intro,
   .site-form {
     grid-template-columns: 1fr;
+  }
+
+  .form-section {
+    gap: 1.4rem;
   }
 
   .team-card h3,
@@ -1274,6 +1377,58 @@ main {
   .hero--full {
     width: 100%;
     border-radius: 0;
+    min-height: 100svh;
+  }
+
+  .brand-logo {
+    height: 6.5rem;
+  }
+
+  .site-header--home .site-nav {
+    gap: 0.8rem;
+  }
+
+  .site-header--home .site-nav__link {
+    font-size: 0.88rem;
+    letter-spacing: 0.1em;
+    white-space: nowrap;
+  }
+
+  .site-header__action {
+    font-size: 0.72rem;
+  }
+
+  .site-header__home-copy p {
+    font-size: 0.78rem;
+  }
+
+  .site-header__home-copy strong {
+    font-size: clamp(1.8rem, 10vw, 2.6rem);
+    line-height: 1;
+  }
+
+  .hero-copy {
+    padding: 8.75rem 1rem 2.2rem;
+  }
+
+  .hero-copy h1 {
+    max-width: 12ch;
+    font-size: clamp(2.3rem, 11vw, 3.4rem);
+  }
+
+  .hero-subhead {
+    font-size: 0.98rem;
+  }
+
+  .project-card,
+  .team-card,
+  .section--callout,
+  .contact-banner,
+  .story-block,
+  .site-form,
+  .form-thankyou,
+  .careers-copy__block {
+    border-radius: 0.7rem;
   }
 
   .projects-grid,
@@ -1282,15 +1437,25 @@ main {
     grid-template-columns: 1fr;
   }
 
-  .logos-grid {
-    grid-template-columns: 1fr;
-  }
-
   .filter-bar {
     gap: 0.45rem;
+    justify-content: center;
+  }
+
+  .filter-bar button {
+    width: 100%;
   }
 
   .gallery-control {
     width: 2.7rem;
+  }
+
+  .logos-grid__logo {
+    max-height: 4.75rem;
+    object-fit: contain;
+  }
+
+  .contact-details--panel {
+    padding: 1rem 1.05rem;
   }
 }

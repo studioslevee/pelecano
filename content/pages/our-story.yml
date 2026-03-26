@@ -30,6 +30,11 @@ sections:
       - year: "Today"
         label: Licensed in 21 states
         description: Pellicano now delivers comprehensive construction management services throughout the region with offices in Albany, Athens, Atlanta, and Macon.
+  - type: team_grid
+    enabled: true
+    eyebrow: Team
+    headline: Only great people on board.
+    body: Pellicano's leadership team combines deep operational knowledge, healthcare expertise, field leadership, and long-standing client relationships across the Southeast.
   - type: story_blocks
     enabled: true
     blocks:
@@ -45,8 +50,10 @@ sections:
         body: With offices in Albany, Athens, Atlanta, and Macon, Pellicano continues to offer complete construction management services in 21 states, bringing preconstruction expertise, field leadership, and program-level thinking to every engagement.
         image: /media/uploads/piedmont-athens-brain-and-spine__Piedmont-Athens-Regional-Brain-and-Spine-Piedmont-BS-Offical-1.jpg.jpeg
         image_alignment: right
-  - type: team_grid
+  - type: contact_cta
     enabled: true
-    eyebrow: Team
-    headline: Only great people on board.
-    body: Pellicano's leadership team combines deep operational knowledge, healthcare expertise, field leadership, and long-standing client relationships across the Southeast.
+    eyebrow: Careers
+    headline: Interested in building with Pellicano?
+    body: Explore current opportunities and learn more about joining a team built on trust, training, and long-term relationships.
+    link_label: View Careers
+    link_href: /careers
